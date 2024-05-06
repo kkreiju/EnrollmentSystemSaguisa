@@ -29,8 +29,9 @@ namespace Enrollment_System
         OleDbCommand dbCommand;
         OleDbDataReader dbDataReader;
 
-        int datagridindex = -1;
-
+        int dataGridIndex = -1;
+        List<List<string>> dateArray = new List<List<string>>();
+        List<List<double>> timeArray = new List<List<double>>();
 
         public EnrollmentEntry()
         {
@@ -121,31 +122,22 @@ namespace Enrollment_System
                     if (dbDataReader["SSFEDPCODE"].ToString().Trim().ToUpper() == EDPCodeTextbox.Text.Trim().ToUpper())
                     {
                         found = true;
-                        if(datagridindex == -1)
-                        {
+                        /* 
+                         ------i will list as many thoughts as i can-----
+                        1. duplicate bug? :)
+                        2. conflict at first, add new data and now conflict gone
+                        3. units bug (fixed)
+                         */
+
+                        //verifier
+                        dataGridIndex++;
+                        if (ConflictVerifier(dbDataReader["SSFDAYS"].ToString(), TwentyFourHourFormat(TimeFormat(dbDataReader["SSFSTARTTIME"].ToString())), TwentyFourHourFormat(TimeFormat(dbDataReader["SSFENDTIME"].ToString()))))
+                            //if the subject is not in conflict
                             DisplayToDataGrid();
-                        }
                         else
-                        {
-                            /* 
-                             ------i will list as many thoughts as i can-----
-                            1. datagridindex comparison on 24hr time and for date is idk how pa
-                            2. maybe mag use ug daghan arrays for the date, time
-                            3. for loop for comparison (maybe nested)
-                            4. compare verifiedstarttime > comparedstarttime < verifiedendtime 
-                            5. maybe unahon ug compare ang days if kapareha ba before number 4
-                            6. if kapareho ang days, mo proceed siya sa number 4
-                            7. if pasar sa conflict verifier, DisplayToDataGrid() na dayon
-                            8. continue sa saving file sa EnrollmentHeaderFile & EnrollmentDetailFile
-                            9. paminaw sa vm nga naa sa ip6+
-                             */
+                            MessageBox.Show("Conflict");
 
-                            //verifier
-                            ConflictVerifier(dbDataReader["SSFDAYS"].ToString(), TwentyFourHourFormat(TimeFormat(dbDataReader["SSFSTARTTIME"].ToString())), TwentyFourHourFormat(TimeFormat(dbDataReader["SSFENDTIME"].ToString())));
-
-                            //if the subject is not conflict (pls temporary pani)
-                            DisplayToDataGrid();
-                        }
+                        UnitsLabel.Text = CalculateTotalUnits().ToString();
                     }
 
                 }
@@ -161,7 +153,7 @@ namespace Enrollment_System
             {
                 if (dbDataReader["SFSUBJCODE"].ToString().Trim().ToUpper() == subjectcode.Trim().ToUpper())
                 {
-                    SubjectDataGridView.Rows[datagridindex].Cells[6].Value = dbDataReader["SFSUBJUNITS"].ToString();
+                    SubjectDataGridView.Rows[dataGridIndex].Cells[6].Value = dbDataReader["SFSUBJUNITS"].ToString();
                 }
 
             }
@@ -178,9 +170,9 @@ namespace Enrollment_System
         private int CalculateTotalUnits()
         {
             int units = 0;
-            for(int i = 0; i <= datagridindex; i++)
+            for(int i = 0; i <= dataGridIndex; i++)
             {
-                units += Convert.ToInt16(SubjectDataGridView.Rows[datagridindex].Cells[6].Value);
+                units += Convert.ToInt16(SubjectDataGridView.Rows[i].Cells[6].Value);
             }
             return units;
         }
@@ -191,50 +183,89 @@ namespace Enrollment_System
             twentyfourhrtime = Convert.ToDouble(time.Substring(0, time.IndexOf(':')));
             if (Convert.ToDouble(time.Substring(time.IndexOf(':') + 1, 2)) >= 30)
                 twentyfourhrtime += .30;
-            if (time.Substring(time.IndexOf(' ') + 1) == "PM")
+            if (time.Substring(time.IndexOf(' ') + 1) == "PM" && twentyfourhrtime + 12 != 24)
                 twentyfourhrtime += 12;
             return twentyfourhrtime;
         }
 
-        private void ConflictVerifier(string days, double starttime, double endtime)
+        private bool ConflictVerifier(string days, double starttime, double endtime)
         {
-            MessageBox.Show(starttime.ToString());
             if (days == "MON")
-                MessageBox.Show("Monday");
-            else if(days == "TUE")
-                MessageBox.Show("Tuesday");
+                dateArray.Add(new List<string>() { "Monday" });
+            else if (days == "TUE")
+                dateArray.Add(new List<string>() { "Tuesday" });
             else if (days == "WED")
-                MessageBox.Show("Wednesday");
+                dateArray.Add(new List<string>() { "Wednesday" });
             else if (days == "THU")
-                MessageBox.Show("Thursday");
+                dateArray.Add(new List<string>() { "Thursday" });
             else if (days == "FRI")
-                MessageBox.Show("Friday");
+                dateArray.Add(new List<string>() { "Friday" });
             else if (days == "SAT")
-                MessageBox.Show("Saturday");
+                dateArray.Add(new List<string>() { "Saturday" });
             else if (days == "MW")
-                MessageBox.Show("Monday, Wednesday");
+                dateArray.Add(new List<string>() { "Monday", "Wednesday" });
             else if (days == "TTH")
-                MessageBox.Show("Tuesday, Thursday");
+                dateArray.Add(new List<string>() { "Tuesday", "Thursday" });
             else if (days == "FS")
-                MessageBox.Show("Friday, Saturday");
+                dateArray.Add(new List<string>() { "Friday", "Saturday" });
             else if (days == "MWF")
-                MessageBox.Show("Monday, Wednesday, Friday");
+                dateArray.Add(new List<string>() { "Monday", "Wednesday", "Friday" });
+
+            if(dataGridIndex == 0)
+                timeArray.Add(new List<double>() { starttime, endtime});
+
+            for (int i = 0; i < dataGridIndex; i++)
+            {
+                for(int j = 0; j < dateArray[i].Count; j++)
+                {
+                    for(int k = 0; k < dateArray[dataGridIndex].Count; k++)
+                    {
+                        if (dateArray[i][j] == dateArray[dataGridIndex][k])
+                            if (timeArray[i][0] < starttime && starttime < timeArray[i][1] && timeArray[i][0] < endtime && endtime > timeArray[i][1] || timeArray[i][0] > starttime && starttime < timeArray[i][1] && timeArray[i][0] < endtime && endtime < timeArray[i][1] ||
+                                timeArray[i][0] == starttime && endtime == timeArray[i][1] || timeArray[i][0] < starttime && endtime < timeArray[i][1] ||
+                                timeArray[i][0] > starttime && endtime > timeArray[i][1] || timeArray[i][0] == starttime && endtime < timeArray[i][1] ||
+                                timeArray[i][0] < starttime && endtime == timeArray[i][1])
+                            {
+                                //REVISED VERSION
+                                //first instance: 10 < 10:30 && 12 > 11:30
+                                //second instance: 10 > 7 && 10:30 < 11:30
+                                //third instance: 10 == 10 && 11 == 11
+                                //fourth instance: 10 < 10:30 && 11 < 11:30
+                                //fifth instance: 10 > 7 && 12 > 11:30
+                                //sixth instance: 10 == 10 && 10:30 < 11:30
+                                //seventh instance: 10 < 10:30 && 11:30 == 11:30
+
+                                dataGridIndex--;
+                                return false;
+                            }
+                    }
+                }
+            }
+
+            timeArray.Add(new List<double>() { starttime, endtime });
+            return true;
         }
 
         private void DisplayToDataGrid()
         {
-            datagridindex++;
             SubjectDataGridView.Rows.Add();
-            SubjectDataGridView.Rows[datagridindex].Cells[0].Value = dbDataReader["SSFEDPCODE"].ToString();
-            SubjectDataGridView.Rows[datagridindex].Cells[1].Value = dbDataReader["SSFSUBJCODE"].ToString();
-            SubjectDataGridView.Rows[datagridindex].Cells[2].Value = TimeFormat(dbDataReader["SSFSTARTTIME"].ToString());
-            SubjectDataGridView.Rows[datagridindex].Cells[3].Value = TimeFormat(dbDataReader["SSFENDTIME"].ToString());
-            SubjectDataGridView.Rows[datagridindex].Cells[4].Value = dbDataReader["SSFDAYS"].ToString();
-            SubjectDataGridView.Rows[datagridindex].Cells[5].Value = dbDataReader["SSFROOM"].ToString();
+            SubjectDataGridView.Rows[dataGridIndex].Cells[0].Value = dbDataReader["SSFEDPCODE"].ToString();
+            SubjectDataGridView.Rows[dataGridIndex].Cells[1].Value = dbDataReader["SSFSUBJCODE"].ToString();
+            SubjectDataGridView.Rows[dataGridIndex].Cells[2].Value = TimeFormat(dbDataReader["SSFSTARTTIME"].ToString());
+            SubjectDataGridView.Rows[dataGridIndex].Cells[3].Value = TimeFormat(dbDataReader["SSFENDTIME"].ToString());
+            SubjectDataGridView.Rows[dataGridIndex].Cells[4].Value = dbDataReader["SSFDAYS"].ToString();
+            SubjectDataGridView.Rows[dataGridIndex].Cells[5].Value = dbDataReader["SSFROOM"].ToString();
 
             //display units
             FindUnits(dbDataReader["SSFSUBJCODE"].ToString());
             UnitsLabel.Text = CalculateTotalUnits().ToString();
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            dataGridIndex = -1;
+            SubjectDataGridView.Rows.Clear();
+            UnitsLabel.Text = string.Empty;
         }
     }
 }

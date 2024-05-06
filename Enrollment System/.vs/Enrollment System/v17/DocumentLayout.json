@@ -1,14 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\arjay\\Documents\\Github\\dbaccesstrial\\Enrollment System\\",
+  "WorkspaceRootPath": "C:\\Users\\arjay\\Documents\\Github\\EnrollmentSystemSaguisa\\Enrollment System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FA585E0E-DFC6-498A-A710-200841A40D36}|Enrollment System\\Enrollment System.csproj|C:\\Users\\arjay\\Documents\\Github\\dbaccesstrial\\Enrollment System\\enrollment system\\enrollmententry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FA585E0E-DFC6-498A-A710-200841A40D36}|Enrollment System\\Enrollment System.csproj|c:\\users\\arjay\\documents\\github\\enrollmentsystemsaguisa\\enrollment system\\enrollment system\\enrollmententry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FA585E0E-DFC6-498A-A710-200841A40D36}|Enrollment System\\Enrollment System.csproj|solutionrelative:enrollment system\\enrollmententry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FA585E0E-DFC6-498A-A710-200841A40D36}|Enrollment System\\Enrollment System.csproj|C:\\Users\\arjay\\Documents\\Github\\dbaccesstrial\\Enrollment System\\enrollment system\\enrollmententry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{FA585E0E-DFC6-498A-A710-200841A40D36}|Enrollment System\\Enrollment System.csproj|c:\\users\\arjay\\documents\\github\\enrollmentsystemsaguisa\\enrollment system\\enrollment system\\enrollmententry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{FA585E0E-DFC6-498A-A710-200841A40D36}|Enrollment System\\Enrollment System.csproj|solutionrelative:enrollment system\\enrollmententry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA585E0E-DFC6-498A-A710-200841A40D36}|Enrollment System\\Enrollment System.csproj|c:\\users\\arjay\\documents\\github\\enrollmentsystemsaguisa\\enrollment system\\enrollment system\\subjectscheduleentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA585E0E-DFC6-498A-A710-200841A40D36}|Enrollment System\\Enrollment System.csproj|solutionrelative:enrollment system\\subjectscheduleentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA585E0E-DFC6-498A-A710-200841A40D36}|Enrollment System\\Enrollment System.csproj|c:\\users\\arjay\\documents\\github\\enrollmentsystemsaguisa\\enrollment system\\enrollment system\\subjectentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA585E0E-DFC6-498A-A710-200841A40D36}|Enrollment System\\Enrollment System.csproj|solutionrelative:enrollment system\\subjectentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,25 +36,49 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "EnrollmentEntry.cs",
-              "DocumentMoniker": "C:\\Users\\arjay\\Documents\\Github\\dbaccesstrial\\Enrollment System\\Enrollment System\\EnrollmentEntry.cs",
+              "DocumentMoniker": "C:\\Users\\arjay\\Documents\\Github\\EnrollmentSystemSaguisa\\Enrollment System\\Enrollment System\\EnrollmentEntry.cs",
               "RelativeDocumentMoniker": "Enrollment System\\EnrollmentEntry.cs",
-              "ToolTip": "C:\\Users\\arjay\\Documents\\Github\\dbaccesstrial\\Enrollment System\\Enrollment System\\EnrollmentEntry.cs",
+              "ToolTip": "C:\\Users\\arjay\\Documents\\Github\\EnrollmentSystemSaguisa\\Enrollment System\\Enrollment System\\EnrollmentEntry.cs",
               "RelativeToolTip": "Enrollment System\\EnrollmentEntry.cs",
-              "ViewState": "AQIAAHEAAAAAAAAAAAAAAIEAAAAfAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAIYAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T10:12:47.939Z",
+              "WhenOpened": "2024-05-06T16:32:50.297Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "EnrollmentEntry.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\arjay\\Documents\\Github\\dbaccesstrial\\Enrollment System\\Enrollment System\\EnrollmentEntry.cs",
+              "DocumentMoniker": "C:\\Users\\arjay\\Documents\\Github\\EnrollmentSystemSaguisa\\Enrollment System\\Enrollment System\\EnrollmentEntry.cs",
               "RelativeDocumentMoniker": "Enrollment System\\EnrollmentEntry.cs",
-              "ToolTip": "C:\\Users\\arjay\\Documents\\Github\\dbaccesstrial\\Enrollment System\\Enrollment System\\EnrollmentEntry.cs [Design]",
+              "ToolTip": "C:\\Users\\arjay\\Documents\\Github\\EnrollmentSystemSaguisa\\Enrollment System\\Enrollment System\\EnrollmentEntry.cs [Design]",
               "RelativeToolTip": "Enrollment System\\EnrollmentEntry.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T10:08:40.809Z",
+              "WhenOpened": "2024-05-06T16:32:35.124Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SubjectScheduleEntry.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\arjay\\Documents\\Github\\EnrollmentSystemSaguisa\\Enrollment System\\Enrollment System\\SubjectScheduleEntry.cs",
+              "RelativeDocumentMoniker": "Enrollment System\\SubjectScheduleEntry.cs",
+              "ToolTip": "C:\\Users\\arjay\\Documents\\Github\\EnrollmentSystemSaguisa\\Enrollment System\\Enrollment System\\SubjectScheduleEntry.cs [Design]",
+              "RelativeToolTip": "Enrollment System\\SubjectScheduleEntry.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T16:32:11.958Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SubjectEntry.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\arjay\\Documents\\Github\\EnrollmentSystemSaguisa\\Enrollment System\\Enrollment System\\SubjectEntry.cs",
+              "RelativeDocumentMoniker": "Enrollment System\\SubjectEntry.cs",
+              "ToolTip": "C:\\Users\\arjay\\Documents\\Github\\EnrollmentSystemSaguisa\\Enrollment System\\Enrollment System\\SubjectEntry.cs [Design]",
+              "RelativeToolTip": "Enrollment System\\SubjectEntry.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T16:32:05.787Z",
               "EditorCaption": " [Design]"
             }
           ]

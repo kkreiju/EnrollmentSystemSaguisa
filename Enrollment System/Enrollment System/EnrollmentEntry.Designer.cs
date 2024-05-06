@@ -31,17 +31,15 @@
             this.BackButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.IDNumberTextBox = new System.Windows.Forms.TextBox();
-            this.NameLabel = new System.Windows.Forms.Label();
-            this.CourseLabel = new System.Windows.Forms.Label();
             this.YearLabel = new System.Windows.Forms.Label();
+            this.CourseLabel = new System.Windows.Forms.Label();
+            this.NameLabel = new System.Windows.Forms.Label();
+            this.IDNumberTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SubjectDataGridView = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
-            this.EDPCodeTextbox = new System.Windows.Forms.TextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,8 +47,12 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label6 = new System.Windows.Forms.Label();
+            this.EDPCodeTextbox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.UnitsLabel = new System.Windows.Forms.Label();
+            this.CancelButton = new System.Windows.Forms.Button();
+            this.SaveButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SubjectDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -96,64 +98,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Student Information";
             // 
-            // label2
+            // YearLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label2.Location = new System.Drawing.Point(52, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 20);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "ID Number:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label3.Location = new System.Drawing.Point(491, 49);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 20);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Name:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label4.Location = new System.Drawing.Point(52, 104);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 20);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Course:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label5.Location = new System.Drawing.Point(495, 103);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 20);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Year:";
-            // 
-            // IDNumberTextBox
-            // 
-            this.IDNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.IDNumberTextBox.Location = new System.Drawing.Point(149, 42);
-            this.IDNumberTextBox.Name = "IDNumberTextBox";
-            this.IDNumberTextBox.Size = new System.Drawing.Size(240, 26);
-            this.IDNumberTextBox.TabIndex = 4;
-            this.IDNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IDNumberTextBox_KeyPress);
-            // 
-            // NameLabel
-            // 
-            this.NameLabel.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.NameLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.NameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.NameLabel.Location = new System.Drawing.Point(552, 42);
-            this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(355, 34);
-            this.NameLabel.TabIndex = 5;
+            this.YearLabel.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.YearLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.YearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.YearLabel.Location = new System.Drawing.Point(552, 102);
+            this.YearLabel.Name = "YearLabel";
+            this.YearLabel.Size = new System.Drawing.Size(355, 34);
+            this.YearLabel.TabIndex = 7;
             // 
             // CourseLabel
             // 
@@ -165,15 +118,64 @@
             this.CourseLabel.Size = new System.Drawing.Size(240, 34);
             this.CourseLabel.TabIndex = 6;
             // 
-            // YearLabel
+            // NameLabel
             // 
-            this.YearLabel.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.YearLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.YearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.YearLabel.Location = new System.Drawing.Point(552, 102);
-            this.YearLabel.Name = "YearLabel";
-            this.YearLabel.Size = new System.Drawing.Size(355, 34);
-            this.YearLabel.TabIndex = 7;
+            this.NameLabel.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.NameLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.NameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.NameLabel.Location = new System.Drawing.Point(552, 42);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(355, 34);
+            this.NameLabel.TabIndex = 5;
+            // 
+            // IDNumberTextBox
+            // 
+            this.IDNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.IDNumberTextBox.Location = new System.Drawing.Point(149, 42);
+            this.IDNumberTextBox.Name = "IDNumberTextBox";
+            this.IDNumberTextBox.Size = new System.Drawing.Size(240, 26);
+            this.IDNumberTextBox.TabIndex = 4;
+            this.IDNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IDNumberTextBox_KeyPress);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label5.Location = new System.Drawing.Point(495, 103);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 20);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Year:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label4.Location = new System.Drawing.Point(52, 104);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 20);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Course:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label3.Location = new System.Drawing.Point(491, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 20);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Name:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label2.Location = new System.Drawing.Point(52, 49);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 20);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "ID Number:";
             // 
             // SubjectDataGridView
             // 
@@ -192,23 +194,6 @@
             this.SubjectDataGridView.RowTemplate.Height = 28;
             this.SubjectDataGridView.Size = new System.Drawing.Size(1013, 267);
             this.SubjectDataGridView.TabIndex = 44;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(159, 308);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 20);
-            this.label6.TabIndex = 45;
-            this.label6.Text = "EDP Code:";
-            // 
-            // EDPCodeTextbox
-            // 
-            this.EDPCodeTextbox.Location = new System.Drawing.Point(254, 308);
-            this.EDPCodeTextbox.Name = "EDPCodeTextbox";
-            this.EDPCodeTextbox.Size = new System.Drawing.Size(240, 26);
-            this.EDPCodeTextbox.TabIndex = 46;
-            this.EDPCodeTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EDPCodeTextbox_KeyPress);
             // 
             // Column1
             // 
@@ -265,6 +250,23 @@
             this.Column7.Name = "Column7";
             this.Column7.Width = 82;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(159, 308);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(88, 20);
+            this.label6.TabIndex = 45;
+            this.label6.Text = "EDP Code:";
+            // 
+            // EDPCodeTextbox
+            // 
+            this.EDPCodeTextbox.Location = new System.Drawing.Point(254, 308);
+            this.EDPCodeTextbox.Name = "EDPCodeTextbox";
+            this.EDPCodeTextbox.Size = new System.Drawing.Size(240, 26);
+            this.EDPCodeTextbox.TabIndex = 46;
+            this.EDPCodeTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EDPCodeTextbox_KeyPress);
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -284,12 +286,33 @@
             this.UnitsLabel.Size = new System.Drawing.Size(118, 34);
             this.UnitsLabel.TabIndex = 8;
             // 
+            // CancelButton
+            // 
+            this.CancelButton.Location = new System.Drawing.Point(657, 648);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(75, 32);
+            this.CancelButton.TabIndex = 48;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            // 
+            // SaveButton
+            // 
+            this.SaveButton.Location = new System.Drawing.Point(442, 648);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(75, 32);
+            this.SaveButton.TabIndex = 49;
+            this.SaveButton.Text = "Save";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            // 
             // EnrollmentEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.SaveButton);
+            this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.UnitsLabel);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.EDPCodeTextbox);
@@ -333,5 +356,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label UnitsLabel;
+        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button SaveButton;
     }
 }
