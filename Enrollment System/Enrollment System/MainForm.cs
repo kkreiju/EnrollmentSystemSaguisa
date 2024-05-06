@@ -31,5 +31,12 @@ namespace Enrollment_System
             SubjectScheduleEntry subjectScheduleEntry = new SubjectScheduleEntry();
             subjectScheduleEntry.ShowDialog();
         }
+
+        private void EnrollmentEntryButton_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            EnrollmentEntry enrollmentEntry = new EnrollmentEntry();
+            enrollmentEntry.ShowDialog();
+        }
     }
 }

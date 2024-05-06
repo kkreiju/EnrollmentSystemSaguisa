@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SubjectEntryButton = new System.Windows.Forms.Button();
             this.SubjectScheduleEntryButton = new System.Windows.Forms.Button();
+            this.EnrollmentEntryButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -65,12 +66,23 @@
             this.SubjectScheduleEntryButton.UseVisualStyleBackColor = true;
             this.SubjectScheduleEntryButton.Click += new System.EventHandler(this.SubjectScheduleEntryButton_Click);
             // 
+            // EnrollmentEntryButton
+            // 
+            this.EnrollmentEntryButton.Location = new System.Drawing.Point(464, 455);
+            this.EnrollmentEntryButton.Name = "EnrollmentEntryButton";
+            this.EnrollmentEntryButton.Size = new System.Drawing.Size(294, 75);
+            this.EnrollmentEntryButton.TabIndex = 5;
+            this.EnrollmentEntryButton.Text = "Enrollment Entry";
+            this.EnrollmentEntryButton.UseVisualStyleBackColor = true;
+            this.EnrollmentEntryButton.Click += new System.EventHandler(this.EnrollmentEntryButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.EnrollmentEntryButton);
             this.Controls.Add(this.SubjectScheduleEntryButton);
             this.Controls.Add(this.SubjectEntryButton);
             this.Controls.Add(this.label1);
@@ -86,5 +98,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button SubjectEntryButton;
         private System.Windows.Forms.Button SubjectScheduleEntryButton;
+        private System.Windows.Forms.Button EnrollmentEntryButton;
     }
 }

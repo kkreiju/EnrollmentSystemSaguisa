@@ -196,6 +196,7 @@
             // 
             // SubjectCodeTextbox
             // 
+            this.SubjectCodeTextbox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.SubjectCodeTextbox.Location = new System.Drawing.Point(234, 212);
             this.SubjectCodeTextbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SubjectCodeTextbox.Name = "SubjectCodeTextbox";
@@ -205,6 +206,7 @@
             // 
             // DaysTextbox
             // 
+            this.DaysTextbox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.DaysTextbox.Location = new System.Drawing.Point(234, 411);
             this.DaysTextbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DaysTextbox.Name = "DaysTextbox";
@@ -260,23 +262,25 @@
             // 
             // StartTimeDatePicker
             // 
-            this.StartTimeDatePicker.CustomFormat = "hh:mm";
+            this.StartTimeDatePicker.CustomFormat = "hh:mm tt";
             this.StartTimeDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.StartTimeDatePicker.Location = new System.Drawing.Point(234, 282);
             this.StartTimeDatePicker.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.StartTimeDatePicker.Name = "StartTimeDatePicker";
             this.StartTimeDatePicker.Size = new System.Drawing.Size(148, 26);
             this.StartTimeDatePicker.TabIndex = 37;
+            this.StartTimeDatePicker.Value = new System.DateTime(2024, 1, 1, 0, 0, 0, 0);
             // 
             // EndTimeDatePicker
             // 
-            this.EndTimeDatePicker.CustomFormat = "hh:mm";
+            this.EndTimeDatePicker.CustomFormat = "hh:mm tt";
             this.EndTimeDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.EndTimeDatePicker.Location = new System.Drawing.Point(234, 337);
             this.EndTimeDatePicker.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.EndTimeDatePicker.Name = "EndTimeDatePicker";
             this.EndTimeDatePicker.Size = new System.Drawing.Size(148, 26);
             this.EndTimeDatePicker.TabIndex = 38;
+            this.EndTimeDatePicker.Value = new System.DateTime(2024, 1, 1, 0, 0, 0, 0);
             // 
             // SaveButton
             // 

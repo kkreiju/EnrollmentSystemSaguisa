@@ -14,7 +14,7 @@ namespace Enrollment_System
     public partial class SubjectEntry : Form
     {
         //string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\Server2\second semester 2023-2024\LAB802\79286_CC_APPSDEV22_1030_1230_PM_MW\79286-23220726\Desktop\FINAL\Saguisa.accdb";
-        string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\arjay\Documents\Github\dbaccesstrial\Saguisa.accdb";
+        string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\arjay\Documents\Github\EnrollmentSystemSaguisa\Saguisa.accdb";
         public SubjectEntry()
         {
             InitializeComponent();
@@ -144,6 +144,20 @@ namespace Enrollment_System
             this.Dispose();
             MainForm mainForm = new MainForm();
             mainForm.ShowDialog();
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            SubjectCodeTextBox.Text = string.Empty;
+            DescriptionTextBox.Text = string.Empty;
+            UnitsTextBox.Text = string.Empty;
+            OfferingComboBox.SelectedIndex = -1;
+            CategoryComboBox.SelectedIndex = -1;
+            CourseCodeComboBox.SelectedIndex = -1;
+            CurriculumYearTextBox.Text = string.Empty;
+            SubjectCodeTextBox.Text = string.Empty;
+            PreRequisiteRadioButton.Checked = false;
+            CoRequisiteRadioButton.Checked = false;
         }
     }
 }

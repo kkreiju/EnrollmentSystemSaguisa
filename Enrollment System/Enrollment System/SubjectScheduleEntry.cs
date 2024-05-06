@@ -16,7 +16,7 @@ namespace Enrollment_System
     public partial class SubjectScheduleEntry : Form
     {
         //string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\Server2\second semester 2023-2024\LAB802\79286_CC_APPSDEV22_1030_1230_PM_MW\79286-23220726\Desktop\FINAL\Saguisa.accdb";
-        string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\arjay\Documents\Github\dbaccesstrial\Saguisa.accdb";
+        string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\arjay\Documents\Github\EnrollmentSystemSaguisa\Saguisa.accdb";
 
         //Write
         OleDbConnection dbConnection;
@@ -65,7 +65,7 @@ namespace Enrollment_System
             WriteDBTableConnection("SELECT * FROM SUBJECTSCHEDULEFILE", "SubjectScheduleFile");
 
             dbRow["SSFEDPCODE"] = EDPCodeTextbox.Text;
-            dbRow["SSFSUBJCODE"] = SubjectCodeTextbox.Text;
+            dbRow["SSFSUBJCODE"] = SubjectCodeTextbox.Text.ToUpper();
             dbRow["SSFSTARTTIME"] = StartTimeDatePicker.Text;
             dbRow["SSFENDTIME"] = EndTimeDatePicker.Text;
             dbRow["SSFXM"] = AMPMCombobox.Text;
@@ -73,6 +73,9 @@ namespace Enrollment_System
             dbRow["SSFSECTION"] = SectionTextbox.Text;
             dbRow["SSFROOM"] = RoomTextbox.Text;
             dbRow["SSFSCHOOLYEAR"] = SchoolYearTextbox.Text;
+            dbRow["SSFMAXSIZE"] = 50;
+            dbRow["SSFSTATUS"] = "AC";
+            dbRow["SSFCLASSSIZE"] = 0;
 
             dbDataSet.Tables["SubjectScheduleFile"].Rows.Add(dbRow);
             dbAdapter.Update(dbDataSet, "SubjectScheduleFile");

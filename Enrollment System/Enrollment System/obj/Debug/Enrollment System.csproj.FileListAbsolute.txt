@@ -22,3 +22,4 @@ C:\Users\arjay\Documents\Github\dbaccesstrial\Enrollment System\Enrollment Syste
 C:\Users\arjay\Documents\Github\dbaccesstrial\Enrollment System\Enrollment System\obj\Debug\Enrollment System.exe
 C:\Users\arjay\Documents\Github\dbaccesstrial\Enrollment System\Enrollment System\obj\Debug\Enrollment System.pdb
 C:\Users\arjay\Documents\Github\dbaccesstrial\Enrollment System\Enrollment System\obj\Debug\Enrollment_System.MainForm.resources
+C:\Users\arjay\Documents\Github\dbaccesstrial\Enrollment System\Enrollment System\obj\Debug\Enrollment_System.EnrollmentEntry.resources
