@@ -102,6 +102,18 @@ namespace Enrollment_System
             dbDataReader = dbCommand.ExecuteReader();
         }
 
+        private void UpdateDBTableConnection(string AccessTable, string value, string ForeignAccessField, string PrimaryAccessField, string recordvalue)
+        {
+            dbConnection = new OleDbConnection(connectionString);
+            dbConnection.Open();
+            dbCommand = dbConnection.CreateCommand();
+            dbCommand.Connection = dbConnection;
+            string query = "UPDATE " + AccessTable + " SET " + ForeignAccessField + " = '" + value + "' WHERE " + PrimaryAccessField + " = '" + recordvalue + "'";
+            dbCommand.CommandText = query;
+            dbCommand.ExecuteNonQuery();
+            dbConnection.Close();
+        }
+
         private void BackButton_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -281,6 +293,7 @@ namespace Enrollment_System
 
         private void DisplayToDataGrid()
         {
+            EDPCodeTextbox.Text = string.Empty;
             SubjectDataGridView.Rows.Add();
             SubjectDataGridView.Rows[dataGridIndex].Cells[0].Value = dbDataReader["SSFEDPCODE"].ToString();
             SubjectDataGridView.Rows[dataGridIndex].Cells[1].Value = dbDataReader["SSFSUBJCODE"].ToString();
@@ -301,6 +314,66 @@ namespace Enrollment_System
             dateArray.Clear();
             timeArray.Clear();
             UnitsLabel.Text = string.Empty;
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            bool enrolled = false;
+            if(IDNumberTextBox.Text != string.Empty)
+            {
+                //ENROLLMENT DETAIL
+                for (int i = 0; i <= dataGridIndex; i++)
+                {
+                    //get subject schedule edp code classsize
+                    ReadDBTableConnection("SELECT * FROM SUBJECTSCHEDULEFILE");
+                    while (dbDataReader.Read())
+                    {
+                        if (dbDataReader["SSFEDPCODE"].ToString() == SubjectDataGridView.Rows[dataGridIndex].Cells[0].Value.ToString() && Convert.ToInt32(dbDataReader["SSFCLASSSIZE"]) < Convert.ToInt32(dbDataReader["SSFMAXSIZE"]))
+                        {
+                            //increment classsize
+                            UpdateDBTableConnection("SubjectScheduleFile", (Convert.ToInt32(dbDataReader["SSFCLASSSIZE"]) + 1).ToString(), "SSFCLASSSIZE", "SSFEDPCODE", SubjectDataGridView.Rows[dataGridIndex].Cells[0].Value.ToString());
+
+                            WriteDBTableConnection("SELECT * FROM ENROLLMENTDETAILFILE", "EnrollmentDetailFile");
+
+                            dbRow["ENRDFSTUDID"] = IDNumberTextBox.Text;
+                            dbRow["ENRDFSTUDSUBJCDE"] = SubjectDataGridView.Rows[dataGridIndex].Cells[1].Value.ToString();
+                            dbRow["ENRDFSTUDEDPCODE"] = SubjectDataGridView.Rows[dataGridIndex].Cells[0].Value.ToString();
+
+                            dbDataSet.Tables["EnrollmentDetailFile"].Rows.Add(dbRow);
+                            dbAdapter.Update(dbDataSet, "EnrollmentDetailFile");
+
+                            enrolled = true;
+                            MessageBox.Show("Enrolled");
+                        }
+                        else if(dbDataReader["SSFEDPCODE"].ToString() == SubjectDataGridView.Rows[dataGridIndex].Cells[0].Value.ToString() && Convert.ToInt32(dbDataReader["SSFCLASSSIZE"]) == Convert.ToInt32(dbDataReader["SSFMAXSIZE"]))
+                        {
+                            MessageBox.Show("Class " + dbDataReader["SSFEDPCODE"].ToString() + " is full");
+                            enrolled = false;
+                            break;
+                        }
+                    }
+                }
+
+                if (enrolled)
+                {
+                    WriteDBTableConnection("SELECT * FROM ENROLLMENTHEADERFILE", "EnrollmentHeaderFile");
+
+                    //ENROLLMENT HEADER
+                    dbRow["ENRHFSTUDID"] = IDNumberTextBox.Text;
+                    dbRow["ENRHFSTUDDATEENROLL"] = DateTime.Now.ToString();
+                    dbRow["ENRHFSTUDSCHLYR"] = "2023-2024";
+                    dbRow["ENRHFSTUDENCODER"] = "Saguisa";
+                    dbRow["ENRHFSTUDTOTALUNITS"] = UnitsLabel.Text;
+
+                    dbDataSet.Tables["EnrollmentHeaderFile"].Rows.Add(dbRow);
+                    dbAdapter.Update(dbDataSet, "EnrollmentHeaderFile");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Please enter your ID");
+            }
         }
     }
 }
