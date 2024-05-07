@@ -122,12 +122,6 @@ namespace Enrollment_System
                     if (dbDataReader["SSFEDPCODE"].ToString().Trim().ToUpper() == EDPCodeTextbox.Text.Trim().ToUpper())
                     {
                         found = true;
-                        /* 
-                         ------i will list as many thoughts as i can-----
-                        1. duplicate bug? :)
-                        2. conflict at first, add new data and now conflict gone
-                        3. units bug (fixed)
-                         */
 
                         //verifier
                         dataGridIndex++;
@@ -211,8 +205,30 @@ namespace Enrollment_System
             else if (days == "MWF")
                 dateArray.Add(new List<string>() { "Monday", "Wednesday", "Friday" });
 
-            if(dataGridIndex == 0)
-                timeArray.Add(new List<double>() { starttime, endtime});
+            timeArray.Add(new List<double>() { starttime, endtime });
+
+            /*
+            MessageBox.Show("Row: " + dataGridIndex + "\nTime: " + starttime + "-" + endtime);
+            string display = "Date Array:\n";
+            for(int i = 0; i < dateArray.Count; i++)
+            {
+                for(int j = 0 ; j < dateArray[i].Count; j++)
+                {
+                    display += dateArray[i][j].ToString() + " ";
+                }
+                display += "\n";
+            }
+            display += "\nTime Array:\n";
+            for (int i = 0; i < timeArray.Count; i++)
+            {
+                for (int j = 0; j < timeArray[i].Count; j++)
+                {
+                    display += timeArray[i][j].ToString() + " ";
+                }
+                display += "\n";
+            }
+            MessageBox.Show(display);
+            */
 
             for (int i = 0; i < dataGridIndex; i++)
             {
@@ -235,14 +251,31 @@ namespace Enrollment_System
                                 //sixth instance: 10 == 10 && 10:30 < 11:30
                                 //seventh instance: 10 < 10:30 && 11:30 == 11:30
 
+                                //if (timeArray[i][0] < starttime && starttime < timeArray[i][1] && timeArray[i][0] < endtime && endtime > timeArray[i][1])
+                                //    MessageBox.Show("First Instance");
+                                //if (timeArray[i][0] > starttime && starttime < timeArray[i][1] && timeArray[i][0] < endtime && endtime < timeArray[i][1])
+                                //    MessageBox.Show("Second Instance");
+                                //if (timeArray[i][0] == starttime && endtime == timeArray[i][1])
+                                //    MessageBox.Show("Third Instance");
+                                //if (timeArray[i][0] < starttime && endtime < timeArray[i][1])
+                                //    MessageBox.Show("Fourth Instance");
+                                //if (timeArray[i][0] > starttime && endtime > timeArray[i][1])
+                                //    MessageBox.Show("Fifth Instance");
+                                //if (timeArray[i][0] == starttime && endtime < timeArray[i][1])
+                                //    MessageBox.Show("Sixth Instance");
+                                //if (timeArray[i][0] < starttime && endtime == timeArray[i][1])
+                                //    MessageBox.Show("Seventh Instance");
+
+                                //MessageBox.Show("Day of Conflict: " + dateArray[dataGridIndex][k] + "\nRow: " + i + "\n\nExisting Data\nStart Time: " + timeArray[i][0] + "\nEnd Time: " + timeArray[i][1] + "\nCurrent Data\nStart Time: " + starttime + "\nEnd Time: " + endtime);
+
+                                dateArray.RemoveAt(dataGridIndex);
+                                timeArray.RemoveAt(dataGridIndex);
                                 dataGridIndex--;
                                 return false;
                             }
                     }
                 }
             }
-
-            timeArray.Add(new List<double>() { starttime, endtime });
             return true;
         }
 
@@ -265,6 +298,8 @@ namespace Enrollment_System
         {
             dataGridIndex = -1;
             SubjectDataGridView.Rows.Clear();
+            dateArray.Clear();
+            timeArray.Clear();
             UnitsLabel.Text = string.Empty;
         }
     }
