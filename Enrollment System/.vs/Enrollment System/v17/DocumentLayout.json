@@ -50,7 +50,8 @@
               "RelativeToolTip": "Enrollment System\\SubjectScheduleEntry.cs",
               "ViewState": "AQIAADwAAAAAAAAAAAAEwE0AAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-07T14:40:39.444Z"
+              "WhenOpened": "2024-05-07T14:40:39.444Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -62,7 +63,8 @@
               "RelativeToolTip": "Enrollment System\\SubjectEntry.cs",
               "ViewState": "AQIAAHEAAAAAAAAAAAAqwIAAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-07T07:51:22.015Z"
+              "WhenOpened": "2024-05-07T07:51:22.015Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -72,7 +74,7 @@
               "RelativeDocumentMoniker": "Enrollment System\\EnrollmentEntry.cs",
               "ToolTip": "C:\\Users\\arjay\\Documents\\Github\\EnrollmentSystemSaguisa\\Enrollment System\\Enrollment System\\EnrollmentEntry.cs",
               "RelativeToolTip": "Enrollment System\\EnrollmentEntry.cs",
-              "ViewState": "AQIAAFIBAAAAAAAAAAAowLkAAAAHAAAA",
+              "ViewState": "AQIAAEIBAAAAAAAAAAAmwGUBAABVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-06T16:32:50.297Z",
               "EditorCaption": ""
@@ -97,7 +99,8 @@
               "ToolTip": "C:\\Users\\arjay\\Documents\\Github\\EnrollmentSystemSaguisa\\Enrollment System\\Enrollment System\\SubjectScheduleEntry.cs [Design]",
               "RelativeToolTip": "Enrollment System\\SubjectScheduleEntry.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T16:32:11.958Z"
+              "WhenOpened": "2024-05-06T16:32:11.958Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -108,7 +111,8 @@
               "ToolTip": "C:\\Users\\arjay\\Documents\\Github\\EnrollmentSystemSaguisa\\Enrollment System\\Enrollment System\\SubjectEntry.cs [Design]",
               "RelativeToolTip": "Enrollment System\\SubjectEntry.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T16:32:05.787Z"
+              "WhenOpened": "2024-05-06T16:32:05.787Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

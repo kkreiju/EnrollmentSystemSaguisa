@@ -329,6 +329,22 @@ namespace Enrollment_System
                     while (dbDataReader.Read())
                     {
                         if (dbDataReader["SSFEDPCODE"].ToString() == SubjectDataGridView.Rows[dataGridIndex].Cells[0].Value.ToString() && Convert.ToInt32(dbDataReader["SSFCLASSSIZE"]) < Convert.ToInt32(dbDataReader["SSFMAXSIZE"]))
+                            enrolled = true;
+                        else if(dbDataReader["SSFEDPCODE"].ToString() == SubjectDataGridView.Rows[dataGridIndex].Cells[0].Value.ToString() && Convert.ToInt32(dbDataReader["SSFCLASSSIZE"]) == Convert.ToInt32(dbDataReader["SSFMAXSIZE"]))
+                        {
+                            MessageBox.Show("Class " + dbDataReader["SSFEDPCODE"].ToString() + " is full");
+                            enrolled = false;
+                            break;
+                        }
+                    }
+                }
+
+                if (enrolled)
+                {
+                    ReadDBTableConnection("SELECT * FROM SUBJECTSCHEDULEFILE");
+                    while (dbDataReader.Read())
+                    {
+                        if (dbDataReader["SSFEDPCODE"].ToString() == SubjectDataGridView.Rows[dataGridIndex].Cells[0].Value.ToString() && Convert.ToInt32(dbDataReader["SSFCLASSSIZE"]) < Convert.ToInt32(dbDataReader["SSFMAXSIZE"]))
                         {
                             //increment classsize
                             UpdateDBTableConnection("SubjectScheduleFile", (Convert.ToInt32(dbDataReader["SSFCLASSSIZE"]) + 1).ToString(), "SSFCLASSSIZE", "SSFEDPCODE", SubjectDataGridView.Rows[dataGridIndex].Cells[0].Value.ToString());
@@ -341,21 +357,9 @@ namespace Enrollment_System
 
                             dbDataSet.Tables["EnrollmentDetailFile"].Rows.Add(dbRow);
                             dbAdapter.Update(dbDataSet, "EnrollmentDetailFile");
-
-                            enrolled = true;
-                            MessageBox.Show("Enrolled");
-                        }
-                        else if(dbDataReader["SSFEDPCODE"].ToString() == SubjectDataGridView.Rows[dataGridIndex].Cells[0].Value.ToString() && Convert.ToInt32(dbDataReader["SSFCLASSSIZE"]) == Convert.ToInt32(dbDataReader["SSFMAXSIZE"]))
-                        {
-                            MessageBox.Show("Class " + dbDataReader["SSFEDPCODE"].ToString() + " is full");
-                            enrolled = false;
-                            break;
-                        }
+                        } 
                     }
-                }
 
-                if (enrolled)
-                {
                     WriteDBTableConnection("SELECT * FROM ENROLLMENTHEADERFILE", "EnrollmentHeaderFile");
 
                     //ENROLLMENT HEADER
@@ -367,6 +371,8 @@ namespace Enrollment_System
 
                     dbDataSet.Tables["EnrollmentHeaderFile"].Rows.Add(dbRow);
                     dbAdapter.Update(dbDataSet, "EnrollmentHeaderFile");
+
+                    MessageBox.Show("Enrolled");
                 }
 
             }
