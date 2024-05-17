@@ -13,8 +13,7 @@ namespace Enrollment_System
 {
     public partial class SubjectEntry : Form
     {
-        //string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\Server2\second semester 2023-2024\LAB802\79286_CC_APPSDEV22_1030_1230_PM_MW\79286-23220726\Desktop\FINAL\Saguisa.accdb";
-        string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\arjay\Documents\Github\EnrollmentSystemSaguisa\Saguisa.accdb";
+        string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\Server2\second semester 2023-2024\LAB802\79286_CC_APPSDEV22_1030_1230_PM_MW\79286-23220726\Desktop\FINAL\Saguisa.accdb";
         public SubjectEntry()
         {
             InitializeComponent();
@@ -34,6 +33,23 @@ namespace Enrollment_System
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            if (SubjectCodeTextBox.Text == string.Empty || DescriptionTextBox.Text == string.Empty ||UnitsTextBox.Text == string.Empty ||OfferingComboBox.Text == string.Empty || CategoryComboBox.Text == string.Empty ||
+            CourseCodeComboBox.Text == string.Empty || CurriculumYearTextBox.Text == string.Empty || SubjectCodeTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Please fill all the details!");
+                return;
+            }
+
+            ReadDBTableConnection("SELECT * FROM SUBJECTFILE");
+            while (dbDataReader.Read())
+            {
+                if (dbDataReader["SFSUBJCODE"].ToString().Trim().ToUpper() == SubjectCodeTextBox.Text.Trim().ToUpper())
+                {
+                    MessageBox.Show("Subject Code already existed in the course!");
+                    return;
+                }
+            }
+
             WriteDBTableConnection("SELECT * FROM SUBJECTFILE", "SubjectFile");
 
             dbRow["SFSUBJCODE"] = SubjectCodeTextBox.Text;
@@ -48,7 +64,7 @@ namespace Enrollment_System
             dbDataSet.Tables["SubjectFile"].Rows.Add(dbRow);
             dbAdapter.Update(dbDataSet, "SubjectFile");
 
-            if(RequisiteTextBox.Text != string.Empty)
+            if (RequisiteTextBox.Text != string.Empty)
             {
                 WriteDBTableConnection("SELECT * FROM SUBJECTPREQFILE", "SubjectPreqFile");
 
@@ -65,6 +81,17 @@ namespace Enrollment_System
             PreRequisiteRadioButton.Checked = false;
             CoRequisiteRadioButton.Checked = false;
             MessageBox.Show("Recorded");
+
+            SubjectCodeTextBox.Text = string.Empty;
+            DescriptionTextBox.Text = string.Empty;
+            UnitsTextBox.Text = string.Empty;
+            OfferingComboBox.SelectedIndex = -1;
+            CategoryComboBox.SelectedIndex = -1;
+            CourseCodeComboBox.SelectedIndex = -1;
+            CurriculumYearTextBox.Text = string.Empty;
+            SubjectCodeTextBox.Text = string.Empty;
+            PreRequisiteRadioButton.Checked = false;
+            CoRequisiteRadioButton.Checked = false;
         }
 
         private void WriteDBTableConnection(string AccessTable, string AdapterFill)
@@ -89,7 +116,7 @@ namespace Enrollment_System
 
         private void RequisiteTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == (char)Keys.Enter)
+            if (e.KeyChar == (char)Keys.Enter)
             {
                 ReadDBTableConnection("SELECT * FROM SUBJECTFILE");
                 bool found = false;
@@ -106,7 +133,7 @@ namespace Enrollment_System
                         description = dbDataReader["SFSUBJDESC"].ToString();
                         units = dbDataReader["SFSUBJUNITS"].ToString();
                         break;
-                    //
+                        //
                     }
                 }
 
@@ -117,7 +144,7 @@ namespace Enrollment_System
                     SubjectDataGridView.Rows[0].Cells[0].Value = string.Empty;
                     SubjectDataGridView.Rows[0].Cells[1].Value = string.Empty;
                     SubjectDataGridView.Rows[0].Cells[2].Value = string.Empty;
-                } 
+                }
                 else
                 {
                     SubjectDataGridView.Rows[0].Cells[0].Value = subjectCode;

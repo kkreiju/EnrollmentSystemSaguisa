@@ -15,8 +15,8 @@ namespace Enrollment_System
 {
     public partial class SubjectScheduleEntry : Form
     {
-        //string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\Server2\second semester 2023-2024\LAB802\79286_CC_APPSDEV22_1030_1230_PM_MW\79286-23220726\Desktop\FINAL\Saguisa.accdb";
-        string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\arjay\Documents\Github\EnrollmentSystemSaguisa\Saguisa.accdb";
+        string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\Server2\second semester 2023-2024\LAB802\79286_CC_APPSDEV22_1030_1230_PM_MW\79286-23220726\Desktop\FINAL\Saguisa.accdb";
+        //string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\arjay\Documents\Github\EnrollmentSystemSaguisa\Saguisa.accdb";
 
         //Write
         OleDbConnection dbConnection;
@@ -62,6 +62,23 @@ namespace Enrollment_System
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            if (EDPCodeTextbox.Text == string.Empty || SubjectCodeTextbox.Text == string.Empty || DaysTextbox.Text == string.Empty || SectionTextbox.Text == string.Empty || RoomTextbox.Text == string.Empty ||
+            SchoolYearTextbox.Text == string.Empty)
+            {
+                MessageBox.Show("Please fill all the details!");
+                return;
+            }
+
+            ReadDBTableConnection("SELECT * FROM SUBJECTSCHEDULEFILE");
+            while (dbDataReader.Read())
+            {
+                if (dbDataReader["SSFEDPCODE"].ToString().Trim() == EDPCodeTextbox.Text.Trim())
+                {
+                    MessageBox.Show("EDP Code already exists!");
+                    return;
+                }
+            }
+
             WriteDBTableConnection("SELECT * FROM SUBJECTSCHEDULEFILE", "SubjectScheduleFile");
 
             dbRow["SSFEDPCODE"] = EDPCodeTextbox.Text;
@@ -73,7 +90,7 @@ namespace Enrollment_System
             dbRow["SSFSECTION"] = SectionTextbox.Text;
             dbRow["SSFROOM"] = RoomTextbox.Text;
             dbRow["SSFSCHOOLYEAR"] = SchoolYearTextbox.Text;
-            dbRow["SSFMAXSIZE"] = 50;
+            dbRow["SSFMAXSIZE"] = 2;
             dbRow["SSFSTATUS"] = "AC";
             dbRow["SSFCLASSSIZE"] = 0;
 
@@ -81,6 +98,17 @@ namespace Enrollment_System
             dbAdapter.Update(dbDataSet, "SubjectScheduleFile");
 
             MessageBox.Show("Recorded");
+
+            EDPCodeTextbox.Text = string.Empty;
+            SubjectCodeTextbox.Text = string.Empty;
+            StartTimeDatePicker.Text = "12:00 AM";
+            EndTimeDatePicker.Text = "12:00 AM";
+            DaysTextbox.Text = string.Empty;
+            DescriptionLabel.Text = string.Empty;
+            SectionTextbox.Text = string.Empty;
+            RoomTextbox.Text = string.Empty;
+            SchoolYearTextbox.Text = string.Empty;
+            AMPMCombobox.SelectedIndex = -1;
         }
 
         private void WriteDBTableConnection(string AccessTable, string AdapterFill)
@@ -108,6 +136,20 @@ namespace Enrollment_System
             this.Dispose();
             MainForm mainForm = new MainForm();
             mainForm.ShowDialog();
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            EDPCodeTextbox.Text = string.Empty;
+            SubjectCodeTextbox.Text = string.Empty;
+            StartTimeDatePicker.Text = "12:00 AM";
+            EndTimeDatePicker.Text = "12:00 AM";
+            DaysTextbox.Text = string.Empty;
+            DescriptionLabel.Text = string.Empty;
+            SectionTextbox.Text = string.Empty;
+            RoomTextbox.Text = string.Empty;
+            SchoolYearTextbox.Text = string.Empty;
+            AMPMCombobox.SelectedIndex = -1;
         }
     }
 }

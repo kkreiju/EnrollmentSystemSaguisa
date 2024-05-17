@@ -28,76 +28,103 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.SubjectEntryButton = new System.Windows.Forms.Button();
             this.SubjectScheduleEntryButton = new System.Windows.Forms.Button();
             this.EnrollmentEntryButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.StudentEntryButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(512, 29);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(204, 58);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Main Menu";
             // 
             // SubjectEntryButton
             // 
-            this.SubjectEntryButton.Location = new System.Drawing.Point(464, 160);
+            this.SubjectEntryButton.BackColor = System.Drawing.Color.LavenderBlush;
+            this.SubjectEntryButton.Font = new System.Drawing.Font("Lucida Bright", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SubjectEntryButton.Location = new System.Drawing.Point(214, 216);
+            this.SubjectEntryButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SubjectEntryButton.Name = "SubjectEntryButton";
-            this.SubjectEntryButton.Size = new System.Drawing.Size(294, 75);
+            this.SubjectEntryButton.Size = new System.Drawing.Size(261, 60);
             this.SubjectEntryButton.TabIndex = 3;
             this.SubjectEntryButton.Text = "Subject Entry";
-            this.SubjectEntryButton.UseVisualStyleBackColor = true;
+            this.SubjectEntryButton.UseVisualStyleBackColor = false;
             this.SubjectEntryButton.Click += new System.EventHandler(this.SubjectEntryButton_Click);
             // 
             // SubjectScheduleEntryButton
             // 
-            this.SubjectScheduleEntryButton.Location = new System.Drawing.Point(464, 307);
+            this.SubjectScheduleEntryButton.BackColor = System.Drawing.Color.LavenderBlush;
+            this.SubjectScheduleEntryButton.Font = new System.Drawing.Font("Lucida Bright", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SubjectScheduleEntryButton.Location = new System.Drawing.Point(214, 297);
+            this.SubjectScheduleEntryButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SubjectScheduleEntryButton.Name = "SubjectScheduleEntryButton";
-            this.SubjectScheduleEntryButton.Size = new System.Drawing.Size(294, 75);
+            this.SubjectScheduleEntryButton.Size = new System.Drawing.Size(261, 60);
             this.SubjectScheduleEntryButton.TabIndex = 4;
             this.SubjectScheduleEntryButton.Text = "Subject Schedule Entry";
-            this.SubjectScheduleEntryButton.UseVisualStyleBackColor = true;
+            this.SubjectScheduleEntryButton.UseVisualStyleBackColor = false;
             this.SubjectScheduleEntryButton.Click += new System.EventHandler(this.SubjectScheduleEntryButton_Click);
             // 
             // EnrollmentEntryButton
             // 
-            this.EnrollmentEntryButton.Location = new System.Drawing.Point(464, 455);
+            this.EnrollmentEntryButton.BackColor = System.Drawing.Color.LavenderBlush;
+            this.EnrollmentEntryButton.Font = new System.Drawing.Font("Lucida Bright", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EnrollmentEntryButton.Location = new System.Drawing.Point(214, 383);
+            this.EnrollmentEntryButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EnrollmentEntryButton.Name = "EnrollmentEntryButton";
-            this.EnrollmentEntryButton.Size = new System.Drawing.Size(294, 75);
+            this.EnrollmentEntryButton.Size = new System.Drawing.Size(261, 60);
             this.EnrollmentEntryButton.TabIndex = 5;
             this.EnrollmentEntryButton.Text = "Enrollment Entry";
-            this.EnrollmentEntryButton.UseVisualStyleBackColor = true;
+            this.EnrollmentEntryButton.UseVisualStyleBackColor = false;
             this.EnrollmentEntryButton.Click += new System.EventHandler(this.EnrollmentEntryButton_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Image = global::Enrollment_System.Properties.Resources.UCC;
+            this.pictureBox1.Location = new System.Drawing.Point(233, 46);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(229, 165);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
+            // StudentEntryButton
+            // 
+            this.StudentEntryButton.BackColor = System.Drawing.Color.LavenderBlush;
+            this.StudentEntryButton.Font = new System.Drawing.Font("Lucida Bright", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StudentEntryButton.Location = new System.Drawing.Point(214, 458);
+            this.StudentEntryButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.StudentEntryButton.Name = "StudentEntryButton";
+            this.StudentEntryButton.Size = new System.Drawing.Size(261, 60);
+            this.StudentEntryButton.TabIndex = 7;
+            this.StudentEntryButton.Text = "Student Entry";
+            this.StudentEntryButton.UseVisualStyleBackColor = false;
+            this.StudentEntryButton.Click += new System.EventHandler(this.StudentEntryButton_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.BackgroundImage = global::Enrollment_System.Properties.Resources.greenbgbgbg;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(692, 554);
+            this.Controls.Add(this.StudentEntryButton);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.EnrollmentEntryButton);
             this.Controls.Add(this.SubjectScheduleEntryButton);
             this.Controls.Add(this.SubjectEntryButton);
-            this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
             this.Text = "MainForm";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button SubjectEntryButton;
         private System.Windows.Forms.Button SubjectScheduleEntryButton;
         private System.Windows.Forms.Button EnrollmentEntryButton;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button StudentEntryButton;
     }
 }

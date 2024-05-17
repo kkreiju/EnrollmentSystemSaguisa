@@ -38,5 +38,12 @@ namespace Enrollment_System
             EnrollmentEntry enrollmentEntry = new EnrollmentEntry();
             enrollmentEntry.ShowDialog();
         }
+
+        private void StudentEntryButton_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            StudentEntry studentEntry = new StudentEntry();
+            studentEntry.ShowDialog();
+        }
     }
 }

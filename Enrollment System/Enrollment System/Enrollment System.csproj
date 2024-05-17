@@ -58,6 +58,12 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentEntry.Designer.cs">
+      <DependentUpon>StudentEntry.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubjectEntry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StudentEntry.resx">
+      <DependentUpon>StudentEntry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SubjectEntry.resx">
       <DependentUpon>SubjectEntry.cs</DependentUpon>
     </EmbeddedResource>
@@ -89,6 +98,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SubjectScheduleEntry.resx">
       <DependentUpon>SubjectScheduleEntry.cs</DependentUpon>
@@ -105,6 +115,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\greenbg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Black Minimalist Outline Icons Icon Set.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\UCC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\greenbgbg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\greenbgbgbg.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -36,3 +36,20 @@ C:\Users\arjay\Documents\Github\EnrollmentSystemSaguisa\Enrollment System\Enroll
 C:\Users\arjay\Documents\Github\EnrollmentSystemSaguisa\Enrollment System\Enrollment System\obj\Debug\Enrollment System.csproj.CoreCompileInputs.cache
 C:\Users\arjay\Documents\Github\EnrollmentSystemSaguisa\Enrollment System\Enrollment System\obj\Debug\Enrollment System.exe
 C:\Users\arjay\Documents\Github\EnrollmentSystemSaguisa\Enrollment System\Enrollment System\obj\Debug\Enrollment System.pdb
+C:\Users\Queue\Downloads\EnrollmentSystemSaguisa-main\EnrollmentSystemSaguisa-main\Enrollment System\Enrollment System\obj\Debug\Enrollment System.csproj.AssemblyReference.cache
+C:\Users\Queue\Downloads\EnrollmentSystemSaguisa-main\EnrollmentSystemSaguisa-main\Enrollment System\Enrollment System\obj\Debug\Enrollment System.exe
+C:\Users\Queue\Downloads\EnrollmentSystemSaguisa-main\EnrollmentSystemSaguisa-main\Enrollment System\Enrollment System\obj\Debug\Enrollment System.pdb
+C:\Users\Queue\Downloads\EnrollmentSystemSaguisa-main\EnrollmentSystemSaguisa-main\Enrollment System\Enrollment System\bin\Debug\Enrollment System.exe.config
+C:\Users\Queue\Downloads\EnrollmentSystemSaguisa-main\EnrollmentSystemSaguisa-main\Enrollment System\Enrollment System\bin\Debug\Enrollment System.exe
+C:\Users\Queue\Downloads\EnrollmentSystemSaguisa-main\EnrollmentSystemSaguisa-main\Enrollment System\Enrollment System\bin\Debug\Enrollment System.pdb
+C:\Users\Queue\Downloads\EnrollmentSystemSaguisa-main\EnrollmentSystemSaguisa-main\Enrollment System\Enrollment System\obj\Debug\Enrollment_System.EnrollmentEntry.resources
+C:\Users\Queue\Downloads\EnrollmentSystemSaguisa-main\EnrollmentSystemSaguisa-main\Enrollment System\Enrollment System\obj\Debug\Enrollment_System.MainForm.resources
+C:\Users\Queue\Downloads\EnrollmentSystemSaguisa-main\EnrollmentSystemSaguisa-main\Enrollment System\Enrollment System\obj\Debug\Enrollment_System.SubjectEntry.resources
+C:\Users\Queue\Downloads\EnrollmentSystemSaguisa-main\EnrollmentSystemSaguisa-main\Enrollment System\Enrollment System\obj\Debug\Enrollment_System.Properties.Resources.resources
+C:\Users\Queue\Downloads\EnrollmentSystemSaguisa-main\EnrollmentSystemSaguisa-main\Enrollment System\Enrollment System\obj\Debug\Enrollment_System.SubjectScheduleEntry.resources
+C:\Users\Queue\Downloads\EnrollmentSystemSaguisa-main\EnrollmentSystemSaguisa-main\Enrollment System\Enrollment System\obj\Debug\Enrollment System.csproj.GenerateResource.cache
+C:\Users\Queue\Downloads\EnrollmentSystemSaguisa-main\EnrollmentSystemSaguisa-main\Enrollment System\Enrollment System\obj\Debug\Enrollment System.csproj.CoreCompileInputs.cache
+C:\Users\Queue\Downloads\EnrollmentSystemSaguisa-main\EnrollmentSystemSaguisa-main\Enrollment System\Enrollment System\obj\Debug\Enrollment_System.StudentEntry.resources
+\\Server2\second semester 2023-2024\LAB802\79286_CC_APPSDEV22_1030_1230_PM_MW\79286-23220726\Desktop\FINAL\Enrollment System\Enrollment System\obj\Debug\Enrollment_System.EnrollmentEntry.resources
+\\Server2\second semester 2023-2024\LAB802\79286_CC_APPSDEV22_1030_1230_PM_MW\79286-23220726\Desktop\FINAL\Enrollment System\Enrollment System\obj\Debug\Enrollment_System.MainForm.resources
+\\Server2\second semester 2023-2024\LAB802\79286_CC_APPSDEV22_1030_1230_PM_MW\79286-23220726\Desktop\FINAL\Enrollment System\Enrollment System\obj\Debug\Enrollment_System.StudentEntry.resources

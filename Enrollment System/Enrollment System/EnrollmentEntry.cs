@@ -14,9 +14,7 @@ namespace Enrollment_System
 {
     public partial class EnrollmentEntry : Form
     {
-
-        //string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\Server2\second semester 2023-2024\LAB802\79286_CC_APPSDEV22_1030_1230_PM_MW\79286-23220726\Desktop\FINAL\Saguisa.accdb";
-        string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\arjay\Documents\Github\EnrollmentSystemSaguisa\Saguisa.accdb";
+        string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\Server2\second semester 2023-2024\LAB802\79286_CC_APPSDEV22_1030_1230_PM_MW\79286-23220726\Desktop\FINAL\Saguisa.accdb";
 
         //Write
         OleDbConnection dbConnection;
@@ -75,7 +73,7 @@ namespace Enrollment_System
                         CourseLabel.Text = course;
                         YearLabel.Text = year;
                     }
-                        
+
                 }
                 if (!found)
                     MessageBox.Show("Not Found");
@@ -126,6 +124,16 @@ namespace Enrollment_System
             if (e.KeyChar == (char)Keys.Enter)
             {
                 ReadDBTableConnection("SELECT * FROM SUBJECTSCHEDULEFILE");
+                while (dbDataReader.Read())
+                {
+                    if (dbDataReader["SSFEDPCODE"].ToString().Trim() == EDPCodeTextbox.Text.ToString().Trim() && dbDataReader["SSFSTATUS"].ToString().Trim() == "IN")
+                    {
+                        MessageBox.Show("Class " + EDPCodeTextbox.Text.ToString() + " is Closed!");
+                        return;
+                    }
+                }
+
+                ReadDBTableConnection("SELECT * FROM SUBJECTSCHEDULEFILE");
 
                 bool found = false;
 
@@ -141,7 +149,7 @@ namespace Enrollment_System
                             //if the subject is not in conflict
                             DisplayToDataGrid();
                         else
-                            MessageBox.Show("Conflict");
+                            MessageBox.Show("Conflict Schedule");
 
                         UnitsLabel.Text = CalculateTotalUnits().ToString();
                     }
@@ -176,7 +184,7 @@ namespace Enrollment_System
         private int CalculateTotalUnits()
         {
             int units = 0;
-            for(int i = 0; i <= dataGridIndex; i++)
+            for (int i = 0; i <= dataGridIndex; i++)
             {
                 units += Convert.ToInt16(SubjectDataGridView.Rows[i].Cells[6].Value);
             }
@@ -219,34 +227,11 @@ namespace Enrollment_System
 
             timeArray.Add(new List<double>() { starttime, endtime });
 
-            /*
-            MessageBox.Show("Row: " + dataGridIndex + "\nTime: " + starttime + "-" + endtime);
-            string display = "Date Array:\n";
-            for(int i = 0; i < dateArray.Count; i++)
-            {
-                for(int j = 0 ; j < dateArray[i].Count; j++)
-                {
-                    display += dateArray[i][j].ToString() + " ";
-                }
-                display += "\n";
-            }
-            display += "\nTime Array:\n";
-            for (int i = 0; i < timeArray.Count; i++)
-            {
-                for (int j = 0; j < timeArray[i].Count; j++)
-                {
-                    display += timeArray[i][j].ToString() + " ";
-                }
-                display += "\n";
-            }
-            MessageBox.Show(display);
-            */
-
             for (int i = 0; i < dataGridIndex; i++)
             {
-                for(int j = 0; j < dateArray[i].Count; j++)
+                for (int j = 0; j < dateArray[i].Count; j++)
                 {
-                    for(int k = 0; k < dateArray[dataGridIndex].Count; k++)
+                    for (int k = 0; k < dateArray[dataGridIndex].Count; k++)
                     {
                         if (dateArray[i][j] == dateArray[dataGridIndex][k])
                             if (timeArray[i][0] < starttime && starttime < timeArray[i][1] && timeArray[i][0] < endtime && endtime > timeArray[i][1] || timeArray[i][0] > starttime && starttime < timeArray[i][1] && timeArray[i][0] < endtime && endtime < timeArray[i][1] ||
@@ -254,32 +239,6 @@ namespace Enrollment_System
                                 timeArray[i][0] > starttime && endtime > timeArray[i][1] || timeArray[i][0] == starttime && endtime < timeArray[i][1] ||
                                 timeArray[i][0] < starttime && endtime == timeArray[i][1])
                             {
-                                //REVISED VERSION
-                                //first instance: 10 < 10:30 && 12 > 11:30
-                                //second instance: 10 > 7 && 10:30 < 11:30
-                                //third instance: 10 == 10 && 11 == 11
-                                //fourth instance: 10 < 10:30 && 11 < 11:30
-                                //fifth instance: 10 > 7 && 12 > 11:30
-                                //sixth instance: 10 == 10 && 10:30 < 11:30
-                                //seventh instance: 10 < 10:30 && 11:30 == 11:30
-
-                                //if (timeArray[i][0] < starttime && starttime < timeArray[i][1] && timeArray[i][0] < endtime && endtime > timeArray[i][1])
-                                //    MessageBox.Show("First Instance");
-                                //if (timeArray[i][0] > starttime && starttime < timeArray[i][1] && timeArray[i][0] < endtime && endtime < timeArray[i][1])
-                                //    MessageBox.Show("Second Instance");
-                                //if (timeArray[i][0] == starttime && endtime == timeArray[i][1])
-                                //    MessageBox.Show("Third Instance");
-                                //if (timeArray[i][0] < starttime && endtime < timeArray[i][1])
-                                //    MessageBox.Show("Fourth Instance");
-                                //if (timeArray[i][0] > starttime && endtime > timeArray[i][1])
-                                //    MessageBox.Show("Fifth Instance");
-                                //if (timeArray[i][0] == starttime && endtime < timeArray[i][1])
-                                //    MessageBox.Show("Sixth Instance");
-                                //if (timeArray[i][0] < starttime && endtime == timeArray[i][1])
-                                //    MessageBox.Show("Seventh Instance");
-
-                                //MessageBox.Show("Day of Conflict: " + dateArray[dataGridIndex][k] + "\nRow: " + i + "\n\nExisting Data\nStart Time: " + timeArray[i][0] + "\nEnd Time: " + timeArray[i][1] + "\nCurrent Data\nStart Time: " + starttime + "\nEnd Time: " + endtime);
-
                                 dateArray.RemoveAt(dataGridIndex);
                                 timeArray.RemoveAt(dataGridIndex);
                                 dataGridIndex--;
@@ -314,71 +273,112 @@ namespace Enrollment_System
             dateArray.Clear();
             timeArray.Clear();
             UnitsLabel.Text = string.Empty;
+            EDPCodeTextbox.Text = string.Empty;
+            NameLabel.Text = string.Empty;
+            YearLabel.Text = string.Empty;
+            CourseLabel.Text = string.Empty;
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            bool enrolled = false;
-            if(IDNumberTextBox.Text != string.Empty)
+            if (IDNumberTextBox.Text == string.Empty || SubjectDataGridView.Rows[0].Cells[0].Value == null)
+            {
+                MessageBox.Show("Please fill all the details!");
+                return;
+            }
+
+            if (YearLabel.Text == string.Empty)
+            {
+                MessageBox.Show("Please confirm the ID Number!");
+                return;
+            }
+
+            bool studentfound = false;
+            ReadDBTableConnection("SELECT * FROM STUDENTFILE");
+            while (dbDataReader.Read())
+            {
+                if (dbDataReader["STFSTUDID"].ToString().Trim() == IDNumberTextBox.Text.Trim())
+                {
+                    studentfound = true;
+                    break;
+                }
+            }
+
+            if (!studentfound)
+            {
+                MessageBox.Show("Student " + IDNumberTextBox.Text + " is not recorded, please input at StudentEntry!");
+                return;
+            }
+
+            ReadDBTableConnection("SELECT * FROM ENROLLMENTHEADERFILE");
+            while (dbDataReader.Read())
+            {
+                if (dbDataReader["ENRHFSTUDID"].ToString().Trim() == IDNumberTextBox.Text.Trim())
+                {
+                    MessageBox.Show("Student " + IDNumberTextBox.Text + " is already enrolled!");
+                    return;
+                }
+            }
+
+            if (IDNumberTextBox.Text != string.Empty)
             {
                 //ENROLLMENT DETAIL
-                for (int i = 0; i <= dataGridIndex; i++)
+                for (int i = 0; i < SubjectDataGridView.Rows.Count - 1; i++)
                 {
-                    //get subject schedule edp code classsize
+                    WriteDBTableConnection("SELECT * FROM ENROLLMENTDETAILFILE", "EnrollmentDetailFile");
+
+                    dbRow["ENRDFSTUDID"] = IDNumberTextBox.Text;
+                    dbRow["ENRDFSTUDSUBJCDE"] = SubjectDataGridView.Rows[i].Cells[1].Value.ToString();
+                    dbRow["ENRDFSTUDEDPCODE"] = SubjectDataGridView.Rows[i].Cells[0].Value.ToString();
+
+                    dbDataSet.Tables["EnrollmentDetailFile"].Rows.Add(dbRow);
+                    dbAdapter.Update(dbDataSet, "EnrollmentDetailFile");
+
                     ReadDBTableConnection("SELECT * FROM SUBJECTSCHEDULEFILE");
                     while (dbDataReader.Read())
                     {
-                        if (dbDataReader["SSFEDPCODE"].ToString() == SubjectDataGridView.Rows[dataGridIndex].Cells[0].Value.ToString() && Convert.ToInt32(dbDataReader["SSFCLASSSIZE"]) < Convert.ToInt32(dbDataReader["SSFMAXSIZE"]))
-                            enrolled = true;
-                        else if(dbDataReader["SSFEDPCODE"].ToString() == SubjectDataGridView.Rows[dataGridIndex].Cells[0].Value.ToString() && Convert.ToInt32(dbDataReader["SSFCLASSSIZE"]) == Convert.ToInt32(dbDataReader["SSFMAXSIZE"]))
+                        if (dbDataReader["SSFEDPCODE"].ToString() == SubjectDataGridView.Rows[dataGridIndex].Cells[0].Value.ToString())
                         {
-                            MessageBox.Show("Class " + dbDataReader["SSFEDPCODE"].ToString() + " is full");
-                            enrolled = false;
-                            break;
+                            //increment classsize
+                            UpdateDBTableConnection("SubjectScheduleFile", (Convert.ToInt32(dbDataReader["SSFCLASSSIZE"]) + 1).ToString(), "SSFCLASSSIZE", "SSFEDPCODE", SubjectDataGridView.Rows[i].Cells[0].Value.ToString()); 
+                        }
+                    }
+
+                    //if full
+                    ReadDBTableConnection("SELECT * FROM SUBJECTSCHEDULEFILE");
+                    while (dbDataReader.Read())
+                    {
+                        if (Convert.ToInt32(dbDataReader["SSFCLASSSIZE"]) == Convert.ToInt32(dbDataReader["SSFMAXSIZE"]))
+                        {
+                            UpdateDBTableConnection("SubjectScheduleFile", "IN", "SSFSTATUS", "SSFEDPCODE", SubjectDataGridView.Rows[i].Cells[0].Value.ToString());
                         }
                     }
                 }
 
-                if (enrolled)
-                {
-                    ReadDBTableConnection("SELECT * FROM SUBJECTSCHEDULEFILE");
-                    while (dbDataReader.Read())
-                    {
-                        if (dbDataReader["SSFEDPCODE"].ToString() == SubjectDataGridView.Rows[dataGridIndex].Cells[0].Value.ToString() && Convert.ToInt32(dbDataReader["SSFCLASSSIZE"]) < Convert.ToInt32(dbDataReader["SSFMAXSIZE"]))
-                        {
-                            //increment classsize
-                            UpdateDBTableConnection("SubjectScheduleFile", (Convert.ToInt32(dbDataReader["SSFCLASSSIZE"]) + 1).ToString(), "SSFCLASSSIZE", "SSFEDPCODE", SubjectDataGridView.Rows[dataGridIndex].Cells[0].Value.ToString());
+                WriteDBTableConnection("SELECT * FROM ENROLLMENTHEADERFILE", "EnrollmentHeaderFile");
 
-                            WriteDBTableConnection("SELECT * FROM ENROLLMENTDETAILFILE", "EnrollmentDetailFile");
+                //ENROLLMENT HEADER
+                dbRow["ENRHFSTUDID"] = IDNumberTextBox.Text;
+                dbRow["ENRHFSTUDDATEENROLL"] = DateTime.Now.ToString();
+                dbRow["ENRHFSTUDSCHLYR"] = "2023-2024";
+                dbRow["ENRHFSTUDENCODER"] = "Saguisa";
+                dbRow["ENRHFSTUDTOTALUNITS"] = UnitsLabel.Text;
 
-                            dbRow["ENRDFSTUDID"] = IDNumberTextBox.Text;
-                            dbRow["ENRDFSTUDSUBJCDE"] = SubjectDataGridView.Rows[dataGridIndex].Cells[1].Value.ToString();
-                            dbRow["ENRDFSTUDEDPCODE"] = SubjectDataGridView.Rows[dataGridIndex].Cells[0].Value.ToString();
+                dbDataSet.Tables["EnrollmentHeaderFile"].Rows.Add(dbRow);
+                dbAdapter.Update(dbDataSet, "EnrollmentHeaderFile");
 
-                            dbDataSet.Tables["EnrollmentDetailFile"].Rows.Add(dbRow);
-                            dbAdapter.Update(dbDataSet, "EnrollmentDetailFile");
-                        } 
-                    }
+                MessageBox.Show("Enrolled");
 
-                    WriteDBTableConnection("SELECT * FROM ENROLLMENTHEADERFILE", "EnrollmentHeaderFile");
-
-                    //ENROLLMENT HEADER
-                    dbRow["ENRHFSTUDID"] = IDNumberTextBox.Text;
-                    dbRow["ENRHFSTUDDATEENROLL"] = DateTime.Now.ToString();
-                    dbRow["ENRHFSTUDSCHLYR"] = "2023-2024";
-                    dbRow["ENRHFSTUDENCODER"] = "Saguisa";
-                    dbRow["ENRHFSTUDTOTALUNITS"] = UnitsLabel.Text;
-
-                    dbDataSet.Tables["EnrollmentHeaderFile"].Rows.Add(dbRow);
-                    dbAdapter.Update(dbDataSet, "EnrollmentHeaderFile");
-
-                    MessageBox.Show("Enrolled");
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("Please enter your ID");
+                IDNumberTextBox.Text = string.Empty;
+                dataGridIndex = -1;
+                SubjectDataGridView.Rows.Clear();
+                dateArray.Clear();
+                timeArray.Clear();
+                UnitsLabel.Text = string.Empty;
+                EDPCodeTextbox.Text = string.Empty;
+                NameLabel.Text = string.Empty;
+                YearLabel.Text = string.Empty;
+                CourseLabel.Text = string.Empty;
             }
         }
     }

@@ -117,23 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="greenbg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\greenbg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="UCC" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\UCC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="greenbg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\greenbg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="greenbgbg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\greenbgbg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Black Minimalist Outline Icons Icon Set" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Black Minimalist Outline Icons Icon Set.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="greenbgbgbg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\greenbgbgbg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>
